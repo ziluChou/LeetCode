@@ -42,7 +42,6 @@ int main()
     auto res = solution.sortedSquares(nums);
     for (auto i : res) {
         cout << i << endl;
-        cout << "hello" << endl;
     }
     return 0;
 }
