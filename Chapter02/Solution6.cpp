@@ -23,6 +23,9 @@ public:
 
         auto cur1 = headA, cur2 = headB;
         while (cur1 != nullptr || cur2 != nullptr) {
+            if (cur1 == cur2) {
+                return cur1;
+            }
             if (cur1 == nullptr) {
                 cur1 = headB;
             } else {
@@ -32,9 +35,6 @@ public:
                 cur2 = headA;
             } else {
                 cur2 = cur2->next;
-            }
-            if (cur1 == cur2) {
-                return cur1;
             }
         }
         return nullptr;
