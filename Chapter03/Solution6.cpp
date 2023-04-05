@@ -23,6 +23,7 @@ public:
         for (auto c : magazine) {
             chars[c - 'a']++;
         }
+        cout << endl;
 
         for (auto c : ransomNote) {
             if (--chars[c - 'a'] < 0) {
