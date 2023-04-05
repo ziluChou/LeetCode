@@ -27,7 +27,8 @@ public:
         vector<vector<int>> res;
         sort(nums.begin(), nums.end());
         for (int i = 0; i < len; ++i) {
-                if (nums[i] > 0) {
+                // 去重
+                if (nums[i] > target && nums[i] >= 0) {
                     return res;
                 }
 
@@ -35,6 +36,11 @@ public:
                     continue;
                 }
             for (int j = i + 1; j < len; ++j) {
+                // 去重
+                if (nums[i] + nums[j] > target && nums[i] + nums[j] >= 0) {
+                    return res;
+                }
+                
                 if (j > i + 1 && nums[j] == nums[j - 1]) {
                     continue;;
                 }
@@ -42,7 +48,8 @@ public:
                 int left = j + 1;
                 int right = len - 1;
                 while (left < right) {
-                    int sum = nums[i] + nums[j] + nums[left] + nums[right];
+                    // 这里防止溢出
+                    long sum = (long)nums[i] + nums[j] + nums[left] + nums[right];
                     if (sum > target) {
                         right--;
                     } else if (sum < target) {
